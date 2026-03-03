@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Control de Gastos</title>
+  <title>Control Financiero</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h2>Control Financiero</h2>
 
-<div id="registro">
-  <input type="text" id="nombre" placeholder="Tu nombre">
-  <input type="number" id="balanceInicial" placeholder="Balance Inicial">
-  <button onclick="guardarUsuario()">Guardar</button>
+<div id="auth">
+  <input type="text" id="nombreRegistro" placeholder="Nombre (solo registro)">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Contraseña">
+  <input type="number" id="balanceInicial" placeholder="Balance Inicial (solo registro)">
+  
+  <button onclick="registrar()">Registrarse</button>
+  <button onclick="login()">Iniciar Sesión</button>
 </div>
 
-<div id="menu" style="display:none;">
+<div id="app" style="display:none;">
   <h3 id="bienvenida"></h3>
   <h2 id="balance"></h2>
 
@@ -23,16 +27,17 @@
   <button onclick="mostrarFormulario('Gasto')">Gasto</button>
   <button onclick="mostrarFormulario('Cheque')">Cheque</button>
   <button onclick="verHistorial()">Historial</button>
-</div>
+  <button onclick="logout()">Cerrar Sesión</button>
 
-<div id="formulario" style="display:none;">
-  <input type="date" id="fecha">
-  <input type="text" id="concepto" placeholder="Concepto">
-  <input type="number" id="monto" placeholder="Monto">
-  <button onclick="guardarTransaccion()">Guardar</button>
-</div>
+  <div id="formulario" style="display:none;">
+    <input type="date" id="fecha">
+    <input type="text" id="concepto" placeholder="Concepto">
+    <input type="number" id="monto" placeholder="Monto">
+    <button onclick="guardarTransaccion()">Guardar</button>
+  </div>
 
-<div id="historial"></div>
+  <div id="historial"></div>
+</div>
 
 <script type="module" src="app.js"></script>
 </body>
