@@ -27,10 +27,13 @@ import {
 // CONFIGURACIÓN FIREBASE
 // ===============================
 const firebaseConfig = {
-  apiKey: "AIzaSyAeUkKN-HoCsBZ75Hix4sO2_AUtCGrGtx0",
-  authDomain: "control-gastos-f7bc2.firebaseapp.com",
-  projectId: "control-gastos-f7bc2",
-};
+    apiKey: "AIzaSyAeUkKN-HoCsBZ75Hix4sO2_AUtCGrGtx0",
+    authDomain: "control-gastos-f7bc2.firebaseapp.com",
+    projectId: "control-gastos-f7bc2",
+    storageBucket: "control-gastos-f7bc2.firebasestorage.app",
+    messagingSenderId: "793293832661",
+    appId: "1:793293832661:web:401b80ca97a54f828d3d5c"
+  };
 
 
 const app = initializeApp(firebaseConfig);
@@ -226,4 +229,5 @@ window.verHistorial = async function(){
   document.getElementById("historial").innerHTML = html;
 
 };
+
 
