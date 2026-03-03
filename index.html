@@ -1,48 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Control Financiero</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Control de Gastos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="container">
- 
-<h2>Control Financiero</h2>
 
-<div id="auth">
-  <input type="text" id="nombreRegistro" placeholder="Nombre (solo registro)">
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Contraseña">
-  <input type="number" id="balanceInicial" placeholder="Balance Inicial (solo registro)">
-  
-  <button onclick="registrar()">Registrarse</button>
-  <button onclick="login()">Iniciar Sesión</button>
-</div>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } 
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-<div id="app" style="display:none;">
-  <h3 id="bienvenida"></h3>
-  <h2 id="balance"></h2>
+  const firebaseConfig = {
+    apiKey: "TU_API_KEY",
+    authDomain: "TU_AUTH_DOMAIN",
+    projectId: "TU_PROJECT_ID",
+    storageBucket: "TU_STORAGE_BUCKET",
+    messagingSenderId: "TU_MESSAGING_SENDER_ID",
+    appId: "TU_APP_ID"
+  };
 
-  <button onclick="mostrarFormulario('Deposito')">Depósito</button>
-  <button onclick="mostrarFormulario('Retiro')">Retiro</button>
-  <button onclick="mostrarFormulario('Gasto')">Gasto</button>
-  <button onclick="mostrarFormulario('Cheque')">Cheque</button>
-  <button onclick="verHistorial()">Historial</button>
-  <button onclick="logout()">Cerrar Sesión</button>
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-  <div id="formulario" style="display:none;">
-    <input type="date" id="fecha">
-    <input type="text" id="concepto" placeholder="Concepto">
-    <input type="number" id="monto" placeholder="Monto">
-    <button onclick="guardarTransaccion()">Guardar</button>
-  </div>
+  onAuthStateChanged(auth, (user) => {
+    if(user){
+      window.location.href = "dashboard.html";
+    } else {
+      window.location.href = "login.html";
+    }
+  });
 
-  <div id="historial"></div>
-</div>
-  
-</div>
-<script type="module" src="app.js"></script>
+</script>
+
 </body>
 </html>
-
