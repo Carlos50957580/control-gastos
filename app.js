@@ -3,9 +3,9 @@ import { getFirestore, collection, addDoc, getDocs }
 from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_DOMINIO",
-  projectId: "TU_ID",
+  apiKey: "AIzaSyAeUkKN-HoCsBZ75Hix4sO2_AUtCGrGtx0",
+  authDomain: "control-gastos-f7bc2.firebaseapp.com",
+  projectId: "control-gastos-f7bc2",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -68,4 +68,5 @@ window.verHistorial = async function(){
   });
 
   document.getElementById("historial").innerHTML = html;
+
 }
