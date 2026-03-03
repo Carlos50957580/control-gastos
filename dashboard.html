@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="balance-card">
+    <h3 id="bienvenida"></h3>
+    <h2 id="balance"></h2>
+  </div>
+
+  <div class="menu-grid">
+    <button class="success" onclick="mostrarFormulario('Deposito')">Depósito</button>
+    <button class="danger" onclick="mostrarFormulario('Retiro')">Retiro</button>
+    <button class="danger" onclick="mostrarFormulario('Gasto')">Gasto</button>
+    <button class="danger" onclick="mostrarFormulario('Cheque')">Cheque</button>
+  </div>
+
+  <button class="primary" onclick="verHistorial()">Historial</button>
+  <button class="primary" onclick="logout()">Cerrar Sesión</button>
+
+  <div id="formulario" style="display:none;">
+    <input type="date" id="fecha">
+    <input type="text" id="concepto" placeholder="Concepto">
+    <input type="number" id="monto" placeholder="Monto">
+    <button class="primary" onclick="guardarTransaccion()">Guardar</button>
+  </div>
+
+  <div class="historial" id="historial"></div>
+
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
